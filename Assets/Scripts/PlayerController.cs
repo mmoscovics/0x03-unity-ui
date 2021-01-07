@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 10;
     public int health = 5;
     public Text scoreText;
-    public Text healthText;
+    public Text healthText;    
+    public Text winloseText;
+    public Image winloseBG;
 
     private int score = 0;
 
@@ -35,6 +37,11 @@ public class PlayerController : MonoBehaviour
             health = 5;
             score = 0;
             StartCoroutine(LoadScene(3));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("menu");
         }
     }
 

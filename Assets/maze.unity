@@ -5160,6 +5160,8 @@ MonoBehaviour:
   health: 5
   scoreText: {fileID: 827550148}
   healthText: {fileID: 1419344448}
+  winloseText: {fileID: 708462690}
+  winloseBG: {fileID: 655959083}
 --- !u!54 &1418581242
 Rigidbody:
   m_ObjectHideFlags: 0
