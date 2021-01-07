@@ -5158,6 +5158,8 @@ MonoBehaviour:
   rb: {fileID: 1418581242}
   speed: 10
   health: 5
+  scoreText: {fileID: 827550148}
+  healthText: {fileID: 1419344448}
 --- !u!54 &1418581242
 Rigidbody:
   m_ObjectHideFlags: 0

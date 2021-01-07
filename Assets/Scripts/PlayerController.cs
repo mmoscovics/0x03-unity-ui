@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     float moveV;
     public float speed = 10;
     public int health = 5;
+    public Text scoreText;
+    public Text healthText;
 
     private int score = 0;
 
@@ -25,10 +28,13 @@ public class PlayerController : MonoBehaviour
     {
         if (health == 0)
         {
-            Debug.Log($"Game Over!");
+            winloseText.text = "Game Over!";
+            winloseText.color = Color.white;
+            winloseBG.color = Color.red;
+            winloseBG.gameObject.SetActive(true);
             health = 5;
             score = 0;
-            SceneManager.LoadScene("maze");
+            StartCoroutine(LoadScene(3));
         }
     }
 
@@ -51,18 +57,41 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             score += 1;
-            Debug.Log($"Score: {score}");
+            SetScoreText();
         }
         /// decrements health on trap collision
         if (other.gameObject.CompareTag("Trap"))
         {
             health -= 1;
-            Debug.Log($"Health: {health}");
+            SetHealthText();  
         }
         /// win on goal collision
         if (other.gameObject.CompareTag("Goal"))
         {
-            Debug.Log($"You win!");
+            winloseText.text = "You Win!";
+            winloseText.color = Color.black;
+            winloseBG.color = Color.green;
+            winloseBG.gameObject.SetActive(true);
+            StartCoroutine(LoadScene(3));
         }
+    }
+
+    /// Update ScoreText object with players score
+    void SetScoreText()
+    {
+        scoreText.text = "Score: " + score.ToString();
+    }
+
+    /// Update HealthText object with players health
+    void SetHealthText()
+    {
+        healthText.text = "Health: " + health.ToString();        
+    }
+
+    /// Reload scene after win or lose
+    IEnumerator LoadScene(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene("maze");
     }
 }
