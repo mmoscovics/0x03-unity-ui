@@ -491,7 +491,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &741741599
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +903,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29ac0755046b0b4486c81890705f39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trapMat: {fileID: 2100000, guid: 05084c8e1b89a384097cbbb3a0ec930c, type: 2}
+  goalMat: {fileID: 2100000, guid: 2fd575d70c7ef6f40a821d1e7c1509cd, type: 2}
+  colorblindMode: {fileID: 708894393}
 --- !u!1 &918881137
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &918881138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1394,7 +1397,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1621726726}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 887214752}
+        m_MethodName: QuitMaze
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1621726726
 MonoBehaviour:
   m_ObjectHideFlags: 0
